@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@inject IReadOnlyDictionary<string, string> Configuration
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Vault Secrets</h2>
+        <ul>
+            @foreach(var config in Configuration.OrderBy(c => c.Key))
+            {
+                <li>
+                    <strong>@(config.Key)</strong> - @(config.Value)
+                </li>
+
+            }
+        </ul>
+    </div>
+</div>
